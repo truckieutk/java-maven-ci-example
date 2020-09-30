@@ -25,3 +25,19 @@ jdk:
 # If a build is successful, the code is submitted for coverage analysis
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+  
+deploy:
+  provider: releases
+  api-key: $GITHUB_API_KEY
+  file: $TRAVIS_BUILD_DIR/target/java-maven-travis-ci-example-1.0-SNAPSHOT.jar
+  skip_cleanup: true
+  name: dev-build-$TRAVIS_TAG
+  body: Automatic build of $TRAVIS_BRANCH ($TRAVIS_COMMIT) built by Travis CI on $(date +'%F %T %Z').
+  prerelease: true
+  overwrite: true
+  target_commitish: $TRAVIS_COMMIT
+  on:
+    tags: true
+
+after_deploy:
+  - rm -rf $TRAVIS_BUILD_DIR/target
