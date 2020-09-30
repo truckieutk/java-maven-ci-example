@@ -41,3 +41,5 @@ deploy:
 
 after_deploy:
   - rm -rf $TRAVIS_BUILD_DIR/target
+  
+# Script end
