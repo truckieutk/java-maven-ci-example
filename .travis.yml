@@ -26,6 +26,9 @@ jdk:
 after_success:
   - bash <(curl -s https://codecov.io/bash)
   
+script:
+   - mvn package
+  
 deploy:
   provider: releases
   api-key: $GITHUB_API_KEY
