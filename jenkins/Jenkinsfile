@@ -5,6 +5,11 @@ pipeline {
         // Install the Maven version configured as "maven-3.6.3" and add it to the path.
         maven "maven-3.6.3"
     }
+    
+    environment {
+
+        PATH = "C:\\WINDOWS\\SYSTEM32"
+    }
 
     stages {
         stage('Build') {
