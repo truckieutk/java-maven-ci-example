@@ -6,16 +6,12 @@ pipeline {
         maven "maven-3.6.3"
     }
     
-    environment {
-
-        PATH = "C:\\WINDOWS\\SYSTEM32"
-    }
 
     stages {
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
-                git 'https://github.com/pritamworld/java-maven-ci-example.git'
+                git 'https://github.com/truckieutk/java-maven-ci-example.git'
 
                 // Run Maven on a Unix agent.
                 //sh "mvn -Dmaven.test.failure.ignore=true clean package"
